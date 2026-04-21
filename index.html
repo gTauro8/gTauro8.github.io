@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-
 <html class="light" lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Giuseppe Tauro — Software Engineer</title>
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
+                    colors: {
                         "surface-bright": "#faf7f2",
                         "secondary-container": "#ffdad6",
                         "on-error": "#ffffff",
@@ -70,22 +68,27 @@
                         "on-primary-fixed-variant": "#1a1a1a",
                         "secondary-fixed-dim": "#ffb3ab"
                     },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
                     },
-                    "fontFamily": {
-                        "headline": ["Space Grotesk"],
-                        "body": ["Inter"],
-                        "label": ["Space Grotesk"]
+                    fontFamily: {
+                        headline: ["Space Grotesk"],
+                        body: ["Inter"],
+                        label: ["Space Grotesk"]
                     }
-                },
-            },
+                }
+            }
         }
     </script>
+
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -105,76 +108,96 @@
             box-shadow: 6px 6px 0px 0px #1a1a1a;
         }
 
-        .active-nav-link {
-            background-color: #ffcc00;
-            color: #1a1a1a;
-            border: 2px solid #1a1a1a;
+        @media (max-width: 767px) {
+            .neo-shadow {
+                box-shadow: 4px 4px 0px 0px #1a1a1a;
+            }
         }
     </style>
 </head>
 
 <body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
     <!-- TopNavBar -->
-    <nav
-        class="sticky top-0 w-full z-50 flex justify-between items-center px-8 py-6 bg-[#f5f0e8] dark:bg-[#1a1a1a] border-b-4 border-[#1a1a1a] dark:border-[#f5f0e8]">
-        <div class="text-2xl font-black tracking-tighter text-[#1a1a1a] dark:text-[#f5f0e8]">
-            Giuseppe Tauro
+    <nav class="sticky top-0 z-50 w-full border-b-4 border-[#1a1a1a] bg-[#f5f0e8]">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+            <div class="text-lg sm:text-xl md:text-2xl font-black tracking-tighter text-[#1a1a1a]">
+                Giuseppe Tauro
+            </div>
+
+            <div class="hidden md:flex gap-2 lg:gap-4">
+                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
+                    href="#about">About</a>
+                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
+                    href="#projects">Projects</a>
+                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
+                    href="#jobs">Jobs</a>
+                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
+                    href="#education">Education</a>
+                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
+                    href="#contact">Contact</a>
+            </div>
         </div>
-        <div class="hidden md:flex gap-4">
-            <a class="text-[#1a1a1a] dark:text-[#f5f0e8] font-bold px-3 py-1 hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75 active:translate-x-0.5 active:translate-y-0.5 uppercase tracking-tighter font-['Space_Grotesk']"
-                href="#about">About</a>
-            <a class="text-[#1a1a1a] dark:text-[#f5f0e8] font-bold px-3 py-1 hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75 active:translate-x-0.5 active:translate-y-0.5 uppercase tracking-tighter font-['Space_Grotesk']"
-                href="#projects">Projects</a>
-            <a class="text-[#1a1a1a] dark:text-[#f5f0e8] font-bold px-3 py-1 hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75 active:translate-x-0.5 active:translate-y-0.5 uppercase tracking-tighter font-['Space_Grotesk']"
-                href="#jobs">Jobs</a>
-            <a class="text-[#1a1a1a] dark:text-[#f5f0e8] font-bold px-3 py-1 hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75 active:translate-x-0.5 active:translate-y-0.5 uppercase tracking-tighter font-['Space_Grotesk']"
-                href="#education">Education</a>
-            <a class="text-[#1a1a1a] dark:text-[#f5f0e8] font-bold px-3 py-1 hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75 active:translate-x-0.5 active:translate-y-0.5 uppercase tracking-tighter font-['Space_Grotesk']"
-                href="#contact">Contact</a>
-        </div>
-        <div class="flex items-center gap-4">
-            <button hidden class="p-2 border-2 border-outline hover:bg-primary-container transition-colors">
-                <span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
-            </button>
+
+        <!-- Mobile nav -->
+        <div class="md:hidden border-t-2 border-[#1a1a1a] px-4 py-3 sm:px-6">
+            <div class="flex flex-wrap gap-2">
+                <a class="border-2 border-primary px-3 py-1 text-xs font-black uppercase bg-primary-fixed text-primary"
+                    href="#about">About</a>
+                <a hidden class="border-2 border-primary px-3 py-1 text-xs font-black uppercase"
+                    href="#projects">Projects</a>
+                <a class="border-2 border-primary px-3 py-1 text-xs font-black uppercase" href="#jobs">Jobs</a>
+                <a class="border-2 border-primary px-3 py-1 text-xs font-black uppercase"
+                    href="#education">Education</a>
+                <a class="border-2 border-primary px-3 py-1 text-xs font-black uppercase" href="#contact">Contact</a>
+            </div>
         </div>
     </nav>
-    <main class="max-w-6xl mx-auto px-8">
+
+    <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <!-- Hero Section -->
-        <section class="py-24 md:py-32 flex flex-col items-start gap-8">
+        <section class="py-16 sm:py-20 md:py-24 lg:py-32 flex flex-col items-start gap-6 sm:gap-8">
             <div
-                class="inline-block px-4 py-1 bg-tertiary text-on-primary font-bold uppercase tracking-widest text-sm border-2 border-primary">
-                Working for SER&P
+                class="inline-block px-3 py-1 sm:px-4 bg-tertiary text-on-primary font-bold uppercase tracking-widest text-[10px] sm:text-xs md:text-sm border-2 border-primary">
+                Working for SER&amp;P
             </div>
-            <h1 class="text-6xl md:text-9xl font-black tracking-tighter leading-none text-primary uppercase">
+
+            <h1
+                class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter leading-[0.95] text-primary uppercase break-words">
                 GIUSEPPE <br /> TAURO
             </h1>
-            <p class="text-2xl md:text-3xl font-medium max-w-2xl text-on-surface-variant leading-tight">
-                Junior Software Engineer & Security Engineering.
+
+            <p
+                class="max-w-2xl text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium leading-tight text-on-surface-variant">
+                Junior Software Engineer &amp; Security Engineering.
             </p>
-            <div class="flex flex-wrap gap-4 mt-4">
-                <a class="bg-primary text-surface px-8 py-4 font-black uppercase border-2 border-primary neo-shadow active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all"
+
+            <div class="mt-2 flex w-full flex-col sm:w-auto sm:flex-row gap-3 sm:gap-4">
+                <a class="text-center bg-primary text-surface px-6 sm:px-8 py-3 sm:py-4 font-black uppercase border-2 border-primary neo-shadow active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all"
                     href="#projects">
                     View Projects
                 </a>
-                <a class="bg-surface text-primary px-8 py-4 font-black uppercase border-2 border-primary hover:bg-primary-container transition-colors"
+                <a class="text-center bg-surface text-primary px-6 sm:px-8 py-3 sm:py-4 font-black uppercase border-2 border-primary hover:bg-primary-container transition-colors"
                     href="#contact">
                     Contact
                 </a>
             </div>
         </section>
+
         <!-- About Me Section -->
-        <section class="py-24 border-t-4 border-primary grid grid-cols-1 md:grid-cols-12 gap-12" id="about">
+        <section
+            class="py-16 sm:py-20 md:py-24 border-t-4 border-primary grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12"
+            id="about">
             <div class="md:col-span-5">
-                <h2 class="text-4xl font-black uppercase tracking-tighter mb-6">About Me</h2>
+                <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-6">About Me</h2>
+
                 <div
-                    class="aspect-square bg-surface-container-highest border-4 border-primary relative overflow-hidden neo-shadow mb-8">
-                    <img class="w-full h-full object-cover grayscale"
-                        data-alt="Modern professional portrait of a software engineer in a minimalist studio setting with dramatic high contrast lighting"
-                        src="me_2.png" />
+                    class="aspect-square bg-surface-container-highest border-4 border-primary relative overflow-hidden neo-shadow mb-8 max-w-md">
+                    <img class="w-full h-full object-cover grayscale" alt="Portrait of Giuseppe Tauro" src="me_2.png" />
                 </div>
             </div>
+
             <div class="md:col-span-7 flex flex-col justify-center">
-                <p class="text-xl leading-relaxed mb-8 font-medium">
+                <p class="text-base sm:text-lg md:text-xl leading-relaxed mb-8 font-medium">
                     I’m a Software Engineer with a background in Computer Science and a Master’s in Security
                     Engineering.
                     I specialize in building backend systems where correctness, security, and reliability are not
@@ -182,19 +205,21 @@
                     integrations. I’m particularly interested in the intersection of software engineering discipline and
                     secure-by-design architecture.
                 </p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-6 border-2 border-primary bg-surface-bright">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="p-5 sm:p-6 border-2 border-primary bg-surface-bright">
                         <h3 class="font-black uppercase text-sm mb-4 text-tertiary">Core Stack</h3>
-                        <ul class="space-y-1 font-bold">
+                        <ul class="space-y-1 font-bold text-sm sm:text-base">
                             <li>ASP.NET Core</li>
                             <li>Python</li>
-                            <li>MySQL,PostgreSQL and MongoDB</li>
+                            <li>MySQL, PostgreSQL and MongoDB</li>
                             <li>Golang</li>
                         </ul>
                     </div>
-                    <div class="p-6 border-2 border-primary bg-primary-fixed">
+
+                    <div class="p-5 sm:p-6 border-2 border-primary bg-primary-fixed">
                         <h3 class="font-black uppercase text-sm mb-4">Focus Areas</h3>
-                        <ul class="space-y-1 font-bold">
+                        <ul class="space-y-1 font-bold text-sm sm:text-base">
                             <li>System Architecture</li>
                             <li>API Design Patterns</li>
                             <li>Security Engineering</li>
@@ -204,26 +229,30 @@
                 </div>
             </div>
         </section>
-        <!-- Projects Section (Bento Grid) -->
-        <section hidden class="py-24 border-t-4 border-primary" id="projects">
-            <div class="flex justify-between items-end mb-12">
-                <h2 class="text-4xl font-black uppercase tracking-tighter">Selected Projects</h2>
+
+        <!-- Projects Section -->
+        <section hidden class="py-16 sm:py-20 md:py-24 border-t-4 border-primary" id="projects">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-12">
+                <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter">Selected Projects</h2>
                 <span class="font-bold text-on-surface-variant">03 / 06</span>
             </div>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Project 1 -->
                 <div class="md:col-span-2 border-4 border-primary bg-surface flex flex-col md:flex-row neo-shadow">
                     <div
-                        class="md:w-1/2 border-b-4 md:border-b-0 md:border-r-4 border-primary bg-surface-container overflow-hidden">
+                        class="md:w-1/2 border-b-4 md:border-b-0 md:border-r-4 border-primary bg-surface-container overflow-hidden min-h-[240px]">
                         <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                            data-alt="Abstract data visualization with clean geometric lines and vibrant blue and yellow highlights on a dark background"
+                            alt="Project preview"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9piz2KQ9Hsl92MUwSn9rjZ2lG53cN5ZGIaXql8aqh-1LCH7-Fyk7EiyfaW5Nhj96EJyWnXHJu4lkKX2hqKx3IPIbYml7B-NvcOkWJlEbNFz-rNOeyjp8naMOzvkyZGZBI6DLt025-Ar-DUDmB9Tcg3YQ8iQQJQap5unpqiA1nD_NcHYcoTGi-qgUWQrD0EnjNlGbBVNGwce33JIkG-IXQePveYk_4r3FG9z0LzfikLkvk3NXz3n_-WSB5hsVJNUgvaYp5GlVmrkci" />
                     </div>
-                    <div class="md:w-1/2 flex flex-col justify-between">
+
+                    <div class="md:w-1/2 flex flex-col justify-between p-5 sm:p-6">
                         <div>
-                            <h3 class="text-2xl font-black uppercase mb-2">NEURAL_NET_VIS</h3>
-                            <p class="text-on-surface-variant font-medium text-sm mb-3">A high-performance WebGL
-                                visualizer for deep learning models, rendering millions of nodes in real-time.</p>
+                            <h3 class="text-xl sm:text-2xl font-black uppercase mb-2">NEURAL_NET_VIS</h3>
+                            <p class="text-on-surface-variant font-medium text-sm mb-3">
+                                A high-performance WebGL visualizer for deep learning models, rendering millions of
+                                nodes in real-time.
+                            </p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="text-xs font-bold px-2 py-1 border border-primary uppercase">React</span>
                                 <span
@@ -231,102 +260,58 @@
                                 <span class="text-xs font-bold px-2 py-1 border border-primary uppercase">GLSL</span>
                             </div>
                         </div>
-                        <div class="flex gap-4">
+
+                        <div class="flex flex-wrap gap-4">
                             <a class="font-black uppercase text-sm border-b-2 border-primary flex items-center gap-1 hover:bg-primary-container"
                                 href="#">
-                                GitHub <span class="material-symbols-outlined text-sm"
-                                    data-icon="open_in_new">open_in_new</span>
+                                GitHub
                             </a>
                             <a class="font-black uppercase text-sm border-b-2 border-primary flex items-center gap-1 hover:bg-primary-container"
                                 href="#">
-                                Demo <span class="material-symbols-outlined text-sm"
-                                    data-icon="visibility">visibility</span>
+                                Demo
                             </a>
                         </div>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="border-4 border-primary bg-primary-fixed neo-shadow flex flex-col justify-between">
-                    <div>
-                        <span class="material-symbols-outlined text-4xl mb-2" data-icon="terminal">terminal</span>
-                        <h3 class="text-2xl font-black uppercase mb-2">CORE_ENGINE</h3>
-                        <p class="text-on-surface font-medium text-sm mb-3">A custom-built game engine written in Rust
-                            focusing on ECS architecture and zero-cost abstractions.</p>
-                    </div>
-                    <a class="font-black uppercase text-sm border-b-2 border-primary self-start hover:bg-surface"
-                        href="#">View Source</a>
-                </div>
-                <!-- Project 3 -->
-                <div class="border-4 border-primary bg-surface neo-shadow flex flex-col justify-between">
-                    <div>
-                        <span class="material-symbols-outlined text-4xl text-tertiary mb-2"
-                            data-icon="database">database</span>
-                        <h3 class="text-2xl font-black uppercase mb-2">DB_SHARDER</h3>
-                        <p class="text-on-surface-variant font-medium text-sm mb-3">Middleware for automatic database
-                            horizontal scaling across multiple cloud regions.</p>
-                    </div>
-                    <a class="font-black uppercase text-sm border-b-2 border-primary self-start hover:bg-primary-container"
-                        href="#">Documentation</a>
-                </div>
-                <!-- Project 4 -->
-                <div class="md:col-span-2 border-4 border-primary bg-surface flex flex-col md:flex-row neo-shadow">
-                    <div class="md:w-1/2 flex flex-col justify-between order-2 md:order-1">
-                        <div>
-                            <h3 class="text-2xl font-black uppercase mb-2">AUTH_SYSTEM_v2</h3>
-                            <p class="text-on-surface-variant font-medium text-sm mb-3">Stateless OAuth2 implementation
-                                using biometric hardware keys and JWT validation at the edge.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs font-bold px-2 py-1 border border-primary uppercase">Go</span>
-                                <span class="text-xs font-bold px-2 py-1 border border-primary uppercase">Redis</span>
-                            </div>
-                        </div>
-                        <a class="font-black uppercase text-sm border-b-2 border-primary self-start hover:bg-primary-container"
-                            href="#">Case Study</a>
-                    </div>
-                    <div
-                        class="md:w-1/2 order-1 md:order-2 border-b-4 md:border-b-0 md:border-l-4 border-primary bg-surface-container overflow-hidden">
-                        <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                            data-alt="Close-up of computer code on a high resolution screen with selective focus and cold blue color palette"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHQ7oPqeTX_gYflAkua4aToGbLFRUZ5XSuCUNOuxILmNeyCNCRONyIbXsETW9SRAdF_TMxwnXFePzJ7b2z8rt_FS0mwuNKosiUS9j3iLGKp6iX2rsyrIo1ykPL3pD547MDywahOz6EsxMcDWP9IfopNvhUlK5P2OK6f2gf3owkDTeRIOARoF4-BKvmhiJAxQAFb-5oSFcFM73BI205biE46k5CrJ9YY4jYOtbBiSLLH9Bul5DMXJP7Yaowm9aZDFXhD9BHG5b1nvPT" />
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Jobs Section (Timeline) -->
-        <section class="py-24 border-t-4 border-primary" id="jobs">
-            <h2 class="text-4xl font-black uppercase tracking-tighter mb-12 text-secondary">Work Experience</h2>
+
+        <!-- Jobs Section -->
+        <section class="py-16 sm:py-20 md:py-24 border-t-4 border-primary" id="jobs">
+            <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-10 sm:mb-12 text-secondary">
+                Work Experience
+            </h2>
+
             <div class="space-y-8">
-                <!-- Job 1 -->
-                <div class="group relative pl-8 md:pl-0">
-                    <div
-                        class="hidden md:block absolute left-[50%] top-0 bottom-0 w-1 bg-primary transform -translate-x-1/2">
-                    </div>
-                    <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="group relative">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
                         <div class="md:w-1/2 md:text-right">
-                            <span class="text-sm font-black uppercase text-on-surface-variant">2023 — PRESENT</span>
-                            <h3 class="text-2xl font-black uppercase">SER&Practices</h3>
+                            <span class="text-sm font-black uppercase text-on-surface-variant">2023 — Present</span>
+                            <h3 class="text-xl sm:text-2xl font-black uppercase">SER&amp;Practices</h3>
                             <p class="font-bold text-tertiary">Software Engineer</p>
                         </div>
+
                         <div
-                            class="hidden md:block w-8 h-8 bg-primary border-4 border-surface z-10 rotate-45 group-hover:rotate-0 transition-transform">
+                            class="hidden md:block w-8 h-8 bg-primary border-4 border-surface z-10 rotate-45 group-hover:rotate-0 transition-transform shrink-0">
                         </div>
-                        <div class="md:w-1/2 p-6 border-2 border-primary bg-surface-bright neo-shadow">
-                            <ul class="list-none space-y-3 font-medium">
+
+                        <div class="md:w-1/2 p-5 sm:p-6 border-2 border-primary bg-surface-bright neo-shadow">
+                            <ul class="list-none space-y-3 font-medium text-sm sm:text-base">
                                 <li class="flex items-start gap-2">
-                                    <span class="material-symbols-outlined text-primary text-sm mt-1"
-                                        data-icon="check_circle">check_circle</span>
+                                    <span
+                                        class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
                                     Designed and implemented transactional workflows ensuring data consistency and
                                     reliability across distributed backend components.
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <span class="material-symbols-outlined text-primary text-sm mt-1"
-                                        data-icon="check_circle">check_circle</span>
+                                    <span
+                                        class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
                                     Built secure REST APIs in ASP.NET Core, with a focus on reliable transaction
                                     processing, input integrity, and integration with legacy systems.
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <span class="material-symbols-outlined text-primary text-sm mt-1"
-                                        data-icon="check_circle">check_circle</span>
+                                    <span
+                                        class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
                                     Contributed to system integration projects for POS-connected CRM platforms, managing
                                     high-volume data flows and scalable service components.
                                 </li>
@@ -334,84 +319,39 @@
                         </div>
                     </div>
                 </div>
-                <!-- Job 2 -->
-                <div hidden class="group relative pl-8 md:pl-0">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="md:w-1/2 md:text-right order-2 md:order-1">
-                            <div class="p-6 border-2 border-primary bg-surface-bright neo-shadow">
-                                <ul class="list-none space-y-3 font-medium text-left">
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-primary text-sm mt-1"
-                                            data-icon="check_circle">check_circle</span>
-                                        Built a multi-tenant SaaS platform serving 10,00: users.
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-primary text-sm mt-1"
-                                            data-icon="check_circle">check_circle</span>
-                                        Implemented CI/CD pipelines reducing deployment time by 75%.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div
-                            class="hidden md:block w-8 h-8 bg-primary-fixed border-4 border-surface z-10 rotate-45 group-hover:rotate-0 transition-transform order-2">
-                        </div>
-                        <div class="md:w-1/2 order-1 md:order-3">
-                            <span class="text-sm font-black uppercase text-on-surface-variant">2019 — 2022</span>
-                            <h3 class="text-2xl font-black uppercase">DATA_STREAM_INC</h3>
-                            <p class="font-bold text-tertiary">Senior Software Engineer</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Job 3 -->
-                <div hidden class="group relative pl-8 md:pl-0">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="md:w-1/2 md:text-right">
-                            <span class="text-sm font-black uppercase text-on-surface-variant">2017 — 2019</span>
-                            <h3 class="text-2xl font-black uppercase">MODERN_STACK</h3>
-                            <p class="font-bold text-tertiary">Backend Developer</p>
-                        </div>
-                        <div
-                            class="hidden md:block w-8 h-8 bg-primary border-4 border-surface z-10 rotate-45 group-hover:rotate-0 transition-transform">
-                        </div>
-                        <div class="md:w-1/2 p-6 border-2 border-primary bg-surface-bright neo-shadow">
-                            <p class="font-medium">Initial member of the backend team developing foundational
-                                microservices for a fintech startup.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
-        <!-- Education Section (Timeline) -->
-        <section class="py-24 border-t-4 border-primary" id="education">
-            <h2 class="text-4xl font-black uppercase tracking-tighter mb-12 text-secondary">Education</h2>
-            <div class="space-y-8">
 
-                <!-- Master's Degree -->
-                <div class="group relative pl-8 md:pl-0">
-                    <div
-                        class="hidden md:block absolute left-[50%] top-0 bottom-0 w-1 bg-primary transform -translate-x-1/2">
-                    </div>
-                    <div class="flex flex-col md:flex-row items-center gap-8">
+        <!-- Education Section -->
+        <section class="py-16 sm:py-20 md:py-24 border-t-4 border-primary" id="education">
+            <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-10 sm:mb-12 text-secondary">
+                Education
+            </h2>
+
+            <div class="space-y-8">
+                <div class="group relative">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
                         <div class="md:w-1/2 md:text-right">
-                            <span class="text-sm font-black uppercase text-on-surface-variant">2023 — PRESENT</span>
-                            <h3 class="text-2xl font-black uppercase">Università di Bari</h3>
+                            <span class="text-sm font-black uppercase text-on-surface-variant">2023 — Present</span>
+                            <h3 class="text-xl sm:text-2xl font-black uppercase">Università di Bari</h3>
                             <p class="font-bold text-tertiary">Master's Degree — Computer Science</p>
                         </div>
+
                         <div
-                            class="hidden md:block w-8 h-8 bg-primary border-4 border-surface z-10 rotate-45 group-hover:rotate-0 transition-transform">
+                            class="hidden md:block w-8 h-8 bg-primary border-4 border-surface z-10 rotate-45 group-hover:rotate-0 transition-transform shrink-0">
                         </div>
-                        <div class="md:w-1/2 p-6 border-2 border-primary bg-surface-bright neo-shadow">
-                            <ul class="list-none space-y-3 font-medium">
+
+                        <div class="md:w-1/2 p-5 sm:p-6 border-2 border-primary bg-surface-bright neo-shadow">
+                            <ul class="list-none space-y-3 font-medium text-sm sm:text-base">
                                 <li class="flex items-start gap-2">
-                                    <span class="material-symbols-outlined text-primary text-sm mt-1"
-                                        data-icon="check_circle">check_circle</span>
+                                    <span
+                                        class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
                                     Specialization in Security Engineering — secure software design, vulnerability
                                     analysis, and protection of complex systems and APIs.
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <span class="material-symbols-outlined text-primary text-sm mt-1"
-                                        data-icon="check_circle">check_circle</span>
+                                    <span
+                                        class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
                                     Focus on security-oriented software architecture and protection of distributed
                                     backend systems.
                                 </li>
@@ -420,76 +360,76 @@
                     </div>
                 </div>
 
-                <!-- Bachelor's Degree -->
-                <div class="group relative pl-8 md:pl-0">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="md:w-1/2 md:text-right order-2 md:order-1">
-                            <div class="p-6 border-2 border-primary bg-surface-bright neo-shadow">
-                                <ul class="list-none space-y-3 font-medium text-left">
+                <div class="group relative">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
+                        <div class="md:w-1/2 order-2 md:order-1">
+                            <div class="p-5 sm:p-6 border-2 border-primary bg-surface-bright neo-shadow">
+                                <ul class="list-none space-y-3 font-medium text-sm sm:text-base">
                                     <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-primary text-sm mt-1"
-                                            data-icon="check_circle">check_circle</span>
+                                        <span
+                                            class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
                                         Focused on programming fundamentals, algorithms, data structures, and software
                                         development methodologies.
                                     </li>
                                     <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-primary text-sm mt-1"
-                                            data-icon="check_circle">check_circle</span>
+                                        <span
+                                            class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
                                         Covered software engineering principles, system design, and object-oriented
                                         development.
                                     </li>
                                 </ul>
                             </div>
                         </div>
+
                         <div
-                            class="hidden md:block w-8 h-8 bg-primary border-4 border-surface z-10 rotate-45 group-hover:rotate-0 transition-transform order-2">
+                            class="hidden md:block w-8 h-8 bg-primary border-4 border-surface z-10 rotate-45 group-hover:rotate-0 transition-transform order-2 shrink-0">
                         </div>
-                        <div class="md:w-1/2 order-1 md:order-3">
+
+                        <div class="md:w-1/2 order-1 md:order-3 md:text-left">
                             <span class="text-sm font-black uppercase text-on-surface-variant">2019 — 2023</span>
-                            <h3 class="text-2xl font-black uppercase">Università di Bari</h3>
-                            <p class="font-bold text-tertiary">Bachelor's Degree — Computer Science & Software
+                            <h3 class="text-xl sm:text-2xl font-black uppercase">Università di Bari</h3>
+                            <p class="font-bold text-tertiary">Bachelor's Degree — Computer Science &amp; Software
                                 Engineering</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
-        </div>
-
-        </div>
-        </section>
-
 
         <!-- Contact Section -->
-        <section class="py-24 border-t-4 border-primary" id="contact">
-            <div class="bg-primary p-12 md:p-20 text-surface text-center flex flex-col items-center gap-8">
-                <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+        <section class="py-16 sm:py-20 md:py-24 border-t-4 border-primary" id="contact">
+            <div
+                class="bg-primary p-8 sm:p-12 md:p-16 lg:p-20 text-surface text-center flex flex-col items-center gap-6 sm:gap-8">
+                <h2
+                    class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.95]">
                     READY TO START <br /> A PROJECT?
                 </h2>
-                <p class="text-xl max-w-xl font-medium opacity-80">
-                </p>
-                <a class="text-3xl md:text-4xl font-black border-b-4 border-primary-fixed hover:text-primary-fixed transition-colors"
-                    href="mailto:hello@alexvaughan.dev">
+
+                <a class="break-all text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black border-b-4 border-primary-fixed hover:text-primary-fixed transition-colors"
+                    href="mailto:giuseppe.tauro00@gmail.com">
                     giuseppe.tauro00@gmail.com
                 </a>
             </div>
         </section>
     </main>
+
     <!-- Footer -->
     <footer
-        class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-8 bg-[#1a1a1a] dark:bg-[#000000] border-t-4 border-[#1a1a1a]">
-        <div class="text-xl font-black text-[#f5f0e8] font-['Space_Grotesk'] uppercase tracking-tighter">
+        class="w-full py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8 bg-[#1a1a1a] border-t-4 border-[#1a1a1a]">
+        <div class="text-lg sm:text-xl font-black text-[#f5f0e8] uppercase tracking-tighter text-center md:text-left">
             © 2026
         </div>
-        <div class="flex gap-8">
-            <a class="text-[#f5f0e8] font-['Space_Grotesk'] font-bold uppercase hover:text-[#ffcc00] transition-colors active:scale-95"
+
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-8">
+            <a class="text-[#f5f0e8] font-bold uppercase hover:text-[#ffcc00] transition-colors"
                 href="https://github.com/gTauro8">Github</a>
-            <a class="text-[#f5f0e8] font-['Space_Grotesk'] font-bold uppercase hover:text-[#ffcc00] transition-colors active:scale-95"
-                href="https://www.linkedin.com/in/giuseppe-tauro9/">Linkedin</a>
+            <a class="text-[#f5f0e8] font-bold uppercase hover:text-[#ffcc00] transition-colors"
+                href="https://www.linkedin.com/in/giuseppe-tauro9/">LinkedIn</a>
         </div>
-        <div class="flex items-center gap-2 text-[#f5f0e8] opacity-50 font-bold uppercase text-xs">
-            <span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+
+        <div
+            class="flex items-center gap-2 text-[#f5f0e8] opacity-70 font-bold uppercase text-xs sm:text-sm text-center">
+            <span class="material-symbols-outlined text-sm">location_on</span>
             Fasano, Italy
         </div>
     </footer>
