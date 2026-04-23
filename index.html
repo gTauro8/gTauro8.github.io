@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Giuseppe Tauro — Software Engineer</title>
+
+    <script>
+        (function () {
+            const storageKey = "theme";
+            const savedTheme = localStorage.getItem(storageKey);
+            const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+            if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        })();
+    </script>
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
@@ -108,47 +122,71 @@
             box-shadow: 6px 6px 0px 0px #1a1a1a;
         }
 
+        .dark .neo-shadow {
+            box-shadow: 6px 6px 0px 0px #f5f0e8;
+        }
+
         @media (max-width: 767px) {
             .neo-shadow {
                 box-shadow: 4px 4px 0px 0px #1a1a1a;
             }
+
+            .dark .neo-shadow {
+                box-shadow: 4px 4px 0px 0px #f5f0e8;
+            }
+        }
+
+        .mobile-nav-link.is-active {
+            background-color: #ffcc00;
+            color: #1a1a1a;
         }
     </style>
 </head>
 
-<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<body
+    class="bg-[#f5f0e8] text-[#1a1a1a] selection:bg-[#ffcc00] selection:text-[#1a1a1a] dark:bg-[#1a1a1a] dark:text-[#f5f0e8]">
     <!-- TopNavBar -->
-    <nav class="sticky top-0 z-50 w-full border-b-4 border-[#1a1a1a] bg-[#f5f0e8]">
+    <nav
+        class="sticky top-0 z-50 w-full border-b-4 border-[#1a1a1a] bg-[#f5f0e8] dark:border-[#f5f0e8] dark:bg-[#1a1a1a]">
         <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-            <div class="text-lg sm:text-xl md:text-2xl font-black tracking-tighter text-[#1a1a1a]">
+            <div class="text-lg sm:text-xl md:text-2xl font-black tracking-tighter text-[#1a1a1a] dark:text-[#f5f0e8]">
                 Giuseppe Tauro
             </div>
 
             <div class="hidden md:flex gap-2 lg:gap-4">
-                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
+                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] dark:text-[#f5f0e8] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
                     href="#about">About</a>
-                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
+                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] dark:text-[#f5f0e8] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
                     href="#projects">Projects</a>
-                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
+                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] dark:text-[#f5f0e8] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
                     href="#jobs">Jobs</a>
-                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
+                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] dark:text-[#f5f0e8] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
                     href="#education">Education</a>
-                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
+                <a class="px-2 py-1 lg:px-3 text-sm lg:text-base font-bold uppercase tracking-tighter text-[#1a1a1a] dark:text-[#f5f0e8] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-all duration-75"
                     href="#contact">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
+                    class="p-2 border-2 border-[#1a1a1a] text-[#1a1a1a] dark:border-[#f5f0e8] dark:text-[#f5f0e8] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-colors">
+                    <span id="theme-icon" class="material-symbols-outlined">dark_mode</span>
+                </button>
             </div>
         </div>
 
         <!-- Mobile nav -->
-        <div class="md:hidden border-t-2 border-[#1a1a1a] px-4 py-3 sm:px-6">
+        <div class="md:hidden border-t-2 border-[#1a1a1a] dark:border-[#f5f0e8] px-4 py-3 sm:px-6">
             <div class="flex flex-wrap gap-2">
-                <a class="border-2 border-primary px-3 py-1 text-xs font-black uppercase bg-primary-fixed text-primary"
+                <a class="mobile-nav-link border-2 border-[#1a1a1a] dark:border-[#f5f0e8] px-3 py-1 text-xs font-black uppercase text-[#1a1a1a] dark:text-[#f5f0e8] transition-colors"
                     href="#about">About</a>
-                <a hidden class="border-2 border-primary px-3 py-1 text-xs font-black uppercase"
+                <a class="mobile-nav-link border-2 border-[#1a1a1a] dark:border-[#f5f0e8] px-3 py-1 text-xs font-black uppercase text-[#1a1a1a] dark:text-[#f5f0e8] transition-colors"
                     href="#projects">Projects</a>
-                <a class="border-2 border-primary px-3 py-1 text-xs font-black uppercase" href="#jobs">Jobs</a>
-                <a class="border-2 border-primary px-3 py-1 text-xs font-black uppercase"
+                <a class="mobile-nav-link border-2 border-[#1a1a1a] dark:border-[#f5f0e8] px-3 py-1 text-xs font-black uppercase text-[#1a1a1a] dark:text-[#f5f0e8] transition-colors"
+                    href="#jobs">Jobs</a>
+                <a class="mobile-nav-link border-2 border-[#1a1a1a] dark:border-[#f5f0e8] px-3 py-1 text-xs font-black uppercase text-[#1a1a1a] dark:text-[#f5f0e8] transition-colors"
                     href="#education">Education</a>
-                <a class="border-2 border-primary px-3 py-1 text-xs font-black uppercase" href="#contact">Contact</a>
+                <a class="mobile-nav-link border-2 border-[#1a1a1a] dark:border-[#f5f0e8] px-3 py-1 text-xs font-black uppercase text-[#1a1a1a] dark:text-[#f5f0e8] transition-colors"
+                    href="#contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -157,26 +195,26 @@
         <!-- Hero Section -->
         <section class="py-16 sm:py-20 md:py-24 lg:py-32 flex flex-col items-start gap-6 sm:gap-8">
             <div
-                class="inline-block px-3 py-1 sm:px-4 bg-tertiary text-on-primary font-bold uppercase tracking-widest text-[10px] sm:text-xs md:text-sm border-2 border-primary">
+                class="inline-block px-3 py-1 sm:px-4 bg-[#0055ff] text-white dark:bg-[#4d88ff] dark:text-[#1a1a1a] font-bold uppercase tracking-widest text-[10px] sm:text-xs md:text-sm border-2 border-[#1a1a1a] dark:border-[#f5f0e8]">
                 Working for SER&amp;P
             </div>
 
             <h1
-                class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter leading-[0.95] text-primary uppercase break-words">
+                class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter leading-[0.95] text-[#1a1a1a] dark:text-[#f5f0e8] uppercase break-words">
                 GIUSEPPE <br /> TAURO
             </h1>
 
             <p
-                class="max-w-2xl text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium leading-tight text-on-surface-variant">
+                class="max-w-2xl text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium leading-tight text-[#4a4a4a] dark:text-[#d0cbc3]">
                 Junior Software Engineer &amp; Security Engineering.
             </p>
 
             <div class="mt-2 flex w-full flex-col sm:w-auto sm:flex-row gap-3 sm:gap-4">
-                <a class="text-center bg-primary text-surface px-6 sm:px-8 py-3 sm:py-4 font-black uppercase border-2 border-primary neo-shadow active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all"
+                <a class="text-center bg-[#1a1a1a] text-[#f5f0e8] dark:bg-[#f5f0e8] dark:text-[#1a1a1a] px-6 sm:px-8 py-3 sm:py-4 font-black uppercase border-2 border-[#1a1a1a] dark:border-[#f5f0e8] neo-shadow active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all"
                     href="#projects">
                     View Projects
                 </a>
-                <a class="text-center bg-surface text-primary px-6 sm:px-8 py-3 sm:py-4 font-black uppercase border-2 border-primary hover:bg-primary-container transition-colors"
+                <a class="text-center bg-[#f5f0e8] text-[#1a1a1a] dark:bg-[#1a1a1a] dark:text-[#f5f0e8] px-6 sm:px-8 py-3 sm:py-4 font-black uppercase border-2 border-[#1a1a1a] dark:border-[#f5f0e8] hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-colors"
                     href="#contact">
                     Contact
                 </a>
@@ -185,14 +223,15 @@
 
         <!-- About Me Section -->
         <section
-            class="py-16 sm:py-20 md:py-24 border-t-4 border-primary grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12"
+            class="py-16 sm:py-20 md:py-24 border-t-4 border-[#1a1a1a] dark:border-[#f5f0e8] grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12"
             id="about">
             <div class="md:col-span-5">
                 <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-6">About Me</h2>
 
                 <div
-                    class="aspect-square bg-surface-container-highest border-4 border-primary relative overflow-hidden neo-shadow mb-8 max-w-md">
-                    <img class="w-full h-full object-cover grayscale" alt="Portrait of Giuseppe Tauro" src="me_2.png" />
+                    class="aspect-square bg-[#e2ddd4] dark:bg-[#3d3d3d] border-4 border-[#1a1a1a] dark:border-[#f5f0e8] relative overflow-hidden neo-shadow mb-8 max-w-md">
+                    <img class="w-full h-full object-cover grayscale dark:brightness-110 dark:contrast-125"
+                        alt="Portrait of Giuseppe Tauro" src="me_2.png" />
                 </div>
             </div>
 
@@ -207,8 +246,10 @@
                 </p>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="p-5 sm:p-6 border-2 border-primary bg-surface-bright">
-                        <h3 class="font-black uppercase text-sm mb-4 text-tertiary">Core Stack</h3>
+                    <div
+                        class="p-5 sm:p-6 border-2 border-[#1a1a1a] dark:border-[#f5f0e8] bg-[#faf7f2] dark:bg-[#252525]">
+                        <h3 class="font-black uppercase text-sm mb-4 text-[#0055ff] dark:text-[#4d88ff]">Core Stack
+                        </h3>
                         <ul class="space-y-1 font-bold text-sm sm:text-base">
                             <li>ASP.NET Core</li>
                             <li>Python</li>
@@ -217,7 +258,7 @@
                         </ul>
                     </div>
 
-                    <div class="p-5 sm:p-6 border-2 border-primary bg-primary-fixed">
+                    <div class="p-5 sm:p-6 border-2 border-[#1a1a1a] dark:border-[#f5f0e8] bg-[#ffcc00] text-[#1a1a1a]">
                         <h3 class="font-black uppercase text-sm mb-4">Focus Areas</h3>
                         <ul class="space-y-1 font-bold text-sm sm:text-base">
                             <li>System Architecture</li>
@@ -231,54 +272,71 @@
         </section>
 
         <!-- Projects Section -->
-        <section hidden class="py-16 sm:py-20 md:py-24 border-t-4 border-primary" id="projects">
+        <section class="py-16 sm:py-20 md:py-24 border-t-4 border-[#1a1a1a] dark:border-[#f5f0e8]" id="projects">
             <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-12">
-                <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter">Selected Projects</h2>
-                <span class="font-bold text-on-surface-variant">03 / 06</span>
+                <h2
+                    class="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-10 sm:mb-12 text-[#e63b2e] dark:text-[#ff4d3d]">
+                    Selected Projects</h2>
+                <span class="font-bold text-[#4a4a4a] dark:text-[#d0cbc3]">01 / 06</span>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="md:col-span-2 border-4 border-primary bg-surface flex flex-col md:flex-row neo-shadow">
+                <article
+                    class="md:col-span-2 border-4 border-[#1a1a1a] dark:border-[#f5f0e8] bg-[#f5f0e8] dark:bg-[#1a1a1a] flex flex-col md:flex-row neo-shadow">
+
                     <div
-                        class="md:w-1/2 border-b-4 md:border-b-0 md:border-r-4 border-primary bg-surface-container overflow-hidden min-h-[240px]">
-                        <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                            alt="Project preview"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9piz2KQ9Hsl92MUwSn9rjZ2lG53cN5ZGIaXql8aqh-1LCH7-Fyk7EiyfaW5Nhj96EJyWnXHJu4lkKX2hqKx3IPIbYml7B-NvcOkWJlEbNFz-rNOeyjp8naMOzvkyZGZBI6DLt025-Ar-DUDmB9Tcg3YQ8iQQJQap5unpqiA1nD_NcHYcoTGi-qgUWQrD0EnjNlGbBVNGwce33JIkG-IXQePveYk_4r3FG9z0LzfikLkvk3NXz3n_-WSB5hsVJNUgvaYp5GlVmrkci" />
+                        class="md:w-1/2 border-b-4 md:border-b-0 md:border-r-4 border-[#1a1a1a] dark:border-[#f5f0e8] bg-[#eee9e0] dark:bg-[#212121] min-h-[240px] flex items-center justify-center p-4 sm:p-5">
+
+                        <div class="w-full border-2 border-[#1a1a1a] dark:border-[#f5f0e8] bg-white overflow-hidden">
+                            <img class="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-500 dark:brightness-75 dark:contrast-125"
+                                src="notes.png" alt="Anteprima del progetto Secure Notes Vault">
+                        </div>
                     </div>
 
                     <div class="md:w-1/2 flex flex-col justify-between p-5 sm:p-6">
                         <div>
-                            <h3 class="text-xl sm:text-2xl font-black uppercase mb-2">NEURAL_NET_VIS</h3>
-                            <p class="text-on-surface-variant font-medium text-sm mb-3">
-                                A high-performance WebGL visualizer for deep learning models, rendering millions of
-                                nodes in real-time.
+                            <h3 class="text-xl sm:text-2xl font-black uppercase mb-2">SECURE_NOTES_VAULT</h3>
+
+                            <p class="text-[#4a4a4a] dark:text-[#d0cbc3] font-medium text-sm mb-3">
+                                A secure note-taking web app with user authentication, encrypted notes, and a clean
+                                dashboard
+                                for managing private content.
                             </p>
+
                             <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs font-bold px-2 py-1 border border-primary uppercase">React</span>
                                 <span
-                                    class="text-xs font-bold px-2 py-1 border border-primary uppercase">Three.js</span>
-                                <span class="text-xs font-bold px-2 py-1 border border-primary uppercase">GLSL</span>
+                                    class="text-xs font-bold px-2 py-1 border border-[#1a1a1a] dark:border-[#f5f0e8] uppercase">Flask</span>
+                                <span
+                                    class="text-xs font-bold px-2 py-1 border border-[#1a1a1a] dark:border-[#f5f0e8] uppercase">SQLite</span>
+                                <span
+                                    class="text-xs font-bold px-2 py-1 border border-[#1a1a1a] dark:border-[#f5f0e8] uppercase">Jinja2</span>
+                                <span
+                                    class="text-xs font-bold px-2 py-1 border border-[#1a1a1a] dark:border-[#f5f0e8] uppercase">Encryption</span>
                             </div>
                         </div>
 
                         <div class="flex flex-wrap gap-4">
-                            <a class="font-black uppercase text-sm border-b-2 border-primary flex items-center gap-1 hover:bg-primary-container"
-                                href="#">
+                            <a class="font-black uppercase text-sm border-b-2 border-[#1a1a1a] dark:border-[#f5f0e8] flex items-center gap-1 hover:bg-[#ffcc00] hover:text-[#1a1a1a] px-1"
+                                href="https://github.com/gTauro8/secure-notes-vault" target="_blank"
+                                rel="noopener noreferrer">
                                 GitHub
                             </a>
-                            <a class="font-black uppercase text-sm border-b-2 border-primary flex items-center gap-1 hover:bg-primary-container"
-                                href="#">
-                                Demo
-                            </a>
+
+                            <!-- <a class="font-black uppercase text-sm border-b-2 border-[#1a1a1a] dark:border-[#f5f0e8] flex items-center gap-1 opacity-60 cursor-not-allowed px-1"
+                                href="#" aria-disabled="true">
+                                Demo Soon
+                            </a> -->
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
 
+
         <!-- Jobs Section -->
-        <section class="py-16 sm:py-20 md:py-24 border-t-4 border-primary" id="jobs">
-            <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-10 sm:mb-12 text-secondary">
+        <section class="py-16 sm:py-20 md:py-24 border-t-4 border-[#1a1a1a] dark:border-[#f5f0e8]" id="jobs">
+            <h2
+                class="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-10 sm:mb-12 text-[#e63b2e] dark:text-[#ff4d3d]">
                 Work Experience
             </h2>
 
@@ -286,32 +344,34 @@
                 <div class="group relative">
                     <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
                         <div class="md:w-1/2 md:text-right">
-                            <span class="text-sm font-black uppercase text-on-surface-variant">2023 — Present</span>
+                            <span class="text-sm font-black uppercase text-[#4a4a4a] dark:text-[#d0cbc3]">2023 —
+                                Present</span>
                             <h3 class="text-xl sm:text-2xl font-black uppercase">SER&amp;Practices</h3>
-                            <p class="font-bold text-tertiary">Software Engineer</p>
+                            <p class="font-bold text-[#0055ff] dark:text-[#4d88ff]">Software Engineer</p>
                         </div>
 
                         <div
-                            class="hidden md:block w-8 h-8 bg-primary border-4 border-surface z-10 rotate-45 group-hover:rotate-0 transition-transform shrink-0">
+                            class="hidden md:block w-8 h-8 bg-[#1a1a1a] dark:bg-[#f5f0e8] border-4 border-[#f5f0e8] dark:border-[#1a1a1a] z-10 rotate-45 group-hover:rotate-0 transition-transform shrink-0">
                         </div>
 
-                        <div class="md:w-1/2 p-5 sm:p-6 border-2 border-primary bg-surface-bright neo-shadow">
+                        <div
+                            class="md:w-1/2 p-5 sm:p-6 border-2 border-[#1a1a1a] dark:border-[#f5f0e8] bg-[#faf7f2] dark:bg-[#252525] neo-shadow">
                             <ul class="list-none space-y-3 font-medium text-sm sm:text-base">
                                 <li class="flex items-start gap-2">
                                     <span
-                                        class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+                                        class="material-symbols-outlined text-[#1a1a1a] dark:text-[#f5f0e8] text-sm mt-1">check_circle</span>
                                     Designed and implemented transactional workflows ensuring data consistency and
                                     reliability across distributed backend components.
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span
-                                        class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+                                        class="material-symbols-outlined text-[#1a1a1a] dark:text-[#f5f0e8] text-sm mt-1">check_circle</span>
                                     Built secure REST APIs in ASP.NET Core, with a focus on reliable transaction
                                     processing, input integrity, and integration with legacy systems.
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span
-                                        class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+                                        class="material-symbols-outlined text-[#1a1a1a] dark:text-[#f5f0e8] text-sm mt-1">check_circle</span>
                                     Contributed to system integration projects for POS-connected CRM platforms, managing
                                     high-volume data flows and scalable service components.
                                 </li>
@@ -323,8 +383,9 @@
         </section>
 
         <!-- Education Section -->
-        <section class="py-16 sm:py-20 md:py-24 border-t-4 border-primary" id="education">
-            <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-10 sm:mb-12 text-secondary">
+        <section class="py-16 sm:py-20 md:py-24 border-t-4 border-[#1a1a1a] dark:border-[#f5f0e8]" id="education">
+            <h2
+                class="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-10 sm:mb-12 text-[#e63b2e] dark:text-[#ff4d3d]">
                 Education
             </h2>
 
@@ -332,26 +393,29 @@
                 <div class="group relative">
                     <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
                         <div class="md:w-1/2 md:text-right">
-                            <span class="text-sm font-black uppercase text-on-surface-variant">2023 — Present</span>
+                            <span class="text-sm font-black uppercase text-[#4a4a4a] dark:text-[#d0cbc3]">2023 —
+                                Present</span>
                             <h3 class="text-xl sm:text-2xl font-black uppercase">Università di Bari</h3>
-                            <p class="font-bold text-tertiary">Master's Degree — Computer Science</p>
+                            <p class="font-bold text-[#0055ff] dark:text-[#4d88ff]">Master's Degree — Computer Science
+                            </p>
                         </div>
 
                         <div
-                            class="hidden md:block w-8 h-8 bg-primary border-4 border-surface z-10 rotate-45 group-hover:rotate-0 transition-transform shrink-0">
+                            class="hidden md:block w-8 h-8 bg-[#1a1a1a] dark:bg-[#f5f0e8] border-4 border-[#f5f0e8] dark:border-[#1a1a1a] z-10 rotate-45 group-hover:rotate-0 transition-transform shrink-0">
                         </div>
 
-                        <div class="md:w-1/2 p-5 sm:p-6 border-2 border-primary bg-surface-bright neo-shadow">
+                        <div
+                            class="md:w-1/2 p-5 sm:p-6 border-2 border-[#1a1a1a] dark:border-[#f5f0e8] bg-[#faf7f2] dark:bg-[#252525] neo-shadow">
                             <ul class="list-none space-y-3 font-medium text-sm sm:text-base">
                                 <li class="flex items-start gap-2">
                                     <span
-                                        class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+                                        class="material-symbols-outlined text-[#1a1a1a] dark:text-[#f5f0e8] text-sm mt-1">check_circle</span>
                                     Specialization in Security Engineering — secure software design, vulnerability
                                     analysis, and protection of complex systems and APIs.
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span
-                                        class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+                                        class="material-symbols-outlined text-[#1a1a1a] dark:text-[#f5f0e8] text-sm mt-1">check_circle</span>
                                     Focus on security-oriented software architecture and protection of distributed
                                     backend systems.
                                 </li>
@@ -363,17 +427,18 @@
                 <div class="group relative">
                     <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
                         <div class="md:w-1/2 order-2 md:order-1">
-                            <div class="p-5 sm:p-6 border-2 border-primary bg-surface-bright neo-shadow">
+                            <div
+                                class="p-5 sm:p-6 border-2 border-[#1a1a1a] dark:border-[#f5f0e8] bg-[#faf7f2] dark:bg-[#252525] neo-shadow">
                                 <ul class="list-none space-y-3 font-medium text-sm sm:text-base">
                                     <li class="flex items-start gap-2">
                                         <span
-                                            class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+                                            class="material-symbols-outlined text-[#1a1a1a] dark:text-[#f5f0e8] text-sm mt-1">check_circle</span>
                                         Focused on programming fundamentals, algorithms, data structures, and software
                                         development methodologies.
                                     </li>
                                     <li class="flex items-start gap-2">
                                         <span
-                                            class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+                                            class="material-symbols-outlined text-[#1a1a1a] dark:text-[#f5f0e8] text-sm mt-1">check_circle</span>
                                         Covered software engineering principles, system design, and object-oriented
                                         development.
                                     </li>
@@ -382,14 +447,15 @@
                         </div>
 
                         <div
-                            class="hidden md:block w-8 h-8 bg-primary border-4 border-surface z-10 rotate-45 group-hover:rotate-0 transition-transform order-2 shrink-0">
+                            class="hidden md:block w-8 h-8 bg-[#1a1a1a] dark:bg-[#f5f0e8] border-4 border-[#f5f0e8] dark:border-[#1a1a1a] z-10 rotate-45 group-hover:rotate-0 transition-transform order-2 shrink-0">
                         </div>
 
                         <div class="md:w-1/2 order-1 md:order-3 md:text-left">
-                            <span class="text-sm font-black uppercase text-on-surface-variant">2019 — 2023</span>
+                            <span class="text-sm font-black uppercase text-[#4a4a4a] dark:text-[#d0cbc3]">2019 —
+                                2023</span>
                             <h3 class="text-xl sm:text-2xl font-black uppercase">Università di Bari</h3>
-                            <p class="font-bold text-tertiary">Bachelor's Degree — Computer Science &amp; Software
-                                Engineering</p>
+                            <p class="font-bold text-[#0055ff] dark:text-[#4d88ff]">Bachelor's Degree — Computer
+                                Science &amp; Software Engineering</p>
                         </div>
                     </div>
                 </div>
@@ -397,15 +463,15 @@
         </section>
 
         <!-- Contact Section -->
-        <section class="py-16 sm:py-20 md:py-24 border-t-4 border-primary" id="contact">
+        <section class="py-16 sm:py-20 md:py-24 border-t-4 border-[#1a1a1a] dark:border-[#f5f0e8]" id="contact">
             <div
-                class="bg-primary p-8 sm:p-12 md:p-16 lg:p-20 text-surface text-center flex flex-col items-center gap-6 sm:gap-8">
+                class="bg-[#1a1a1a] text-[#f5f0e8] dark:bg-[#f5f0e8] dark:text-[#1a1a1a] p-8 sm:p-12 md:p-16 lg:p-20 text-center flex flex-col items-center gap-6 sm:gap-8 border-2 border-[#1a1a1a] dark:border-[#f5f0e8]">
                 <h2
                     class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.95]">
                     READY TO START <br /> A PROJECT?
                 </h2>
 
-                <a class="break-all text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black border-b-4 border-primary-fixed hover:text-primary-fixed transition-colors"
+                <a class="break-all text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black border-b-4 border-[#ffcc00] hover:text-[#ffcc00] transition-colors"
                     href="mailto:giuseppe.tauro00@gmail.com">
                     giuseppe.tauro00@gmail.com
                 </a>
@@ -415,24 +481,90 @@
 
     <!-- Footer -->
     <footer
-        class="w-full py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8 bg-[#1a1a1a] border-t-4 border-[#1a1a1a]">
-        <div class="text-lg sm:text-xl font-black text-[#f5f0e8] uppercase tracking-tighter text-center md:text-left">
+        class="w-full py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8 bg-[#1a1a1a] border-t-4 border-[#1a1a1a] text-[#f5f0e8] dark:bg-[#000000] dark:border-[#f5f0e8] dark:text-[#f5f0e8]">
+        <div class="text-lg sm:text-xl font-black uppercase tracking-tighter text-center md:text-left">
             © 2026
         </div>
 
         <div class="flex flex-wrap justify-center gap-4 sm:gap-8">
-            <a class="text-[#f5f0e8] font-bold uppercase hover:text-[#ffcc00] transition-colors"
+            <a class="font-bold uppercase hover:text-[#ffcc00] transition-colors"
                 href="https://github.com/gTauro8">Github</a>
-            <a class="text-[#f5f0e8] font-bold uppercase hover:text-[#ffcc00] transition-colors"
+            <a class="font-bold uppercase hover:text-[#ffcc00] transition-colors"
                 href="https://www.linkedin.com/in/giuseppe-tauro9/">LinkedIn</a>
         </div>
 
-        <div
-            class="flex items-center gap-2 text-[#f5f0e8] opacity-70 font-bold uppercase text-xs sm:text-sm text-center">
+        <div class="flex items-center gap-2 opacity-70 font-bold uppercase text-xs sm:text-sm text-center">
             <span class="material-symbols-outlined text-sm">location_on</span>
             Fasano, Italy
         </div>
     </footer>
+
+    <script>
+            (function () {
+                const root = document.documentElement;
+                const toggleButton = document.getElementById("theme-toggle");
+                const themeIcon = document.getElementById("theme-icon");
+                const storageKey = "theme";
+                const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+                const sections = document.querySelectorAll("main section[id]");
+
+                function updateIcon() {
+                    if (!themeIcon) return;
+                    themeIcon.textContent = root.classList.contains("dark") ? "light_mode" : "dark_mode";
+                }
+
+                function setActiveMobileLink() {
+                    let currentSectionId = "";
+
+                    const scrollPosition = window.scrollY + 140;
+
+                    sections.forEach((section) => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.offsetHeight;
+
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                            currentSectionId = section.getAttribute("id");
+                        }
+                    });
+
+                    mobileNavLinks.forEach((link) => {
+                        const href = link.getAttribute("href");
+                        const isActive = href === `#${currentSectionId}`;
+                        link.classList.toggle("is-active", isActive);
+                    });
+                }
+
+                updateIcon();
+                setActiveMobileLink();
+
+                if (toggleButton) {
+                    toggleButton.addEventListener("click", function () {
+                        const isDark = root.classList.contains("dark");
+
+                        if (isDark) {
+                            root.classList.remove("dark");
+                            localStorage.setItem(storageKey, "light");
+                        } else {
+                            root.classList.add("dark");
+                            localStorage.setItem(storageKey, "dark");
+                        }
+
+                        updateIcon();
+                    });
+                }
+
+                mobileNavLinks.forEach((link) => {
+                    link.addEventListener("click", function () {
+                        mobileNavLinks.forEach((item) => item.classList.remove("is-active"));
+                        link.classList.add("is-active");
+                    });
+                });
+
+                window.addEventListener("scroll", setActiveMobileLink);
+                window.addEventListener("load", setActiveMobileLink);
+                window.addEventListener("resize", setActiveMobileLink);
+            })();
+    </script>
 </body>
 
 </html>
